@@ -8,14 +8,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: python-deployment          
+      app: pythonapp          
   template:                     
     metadata:
       labels:                    
-        app: python-deployment 
+        app: pythonapp 
     spec:
       containers:
-      - name: python-deployment
+      - name: pythonapp
         image: sebastesla1/python:1.1
         command: ["sh","-c","echo running on port 8000"]
         ports:
