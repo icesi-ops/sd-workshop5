@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment                 
+metadata:
+  name: python             
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sebastesla1python          
+  template:                     
+    metadata:
+      labels:                    
+        app: sebastesla1python 
+    spec:
+      containers:
+      - name: sebastesla1python
+        image: sebastesla1/python:1.2
+        ports:
+          - containerPort: 8000
+---
+apiVersion: v1
+kind: Service                    
+metadata:
+  name: lb    
+spec:
+  type: LoadBalancer                 
+  ports:                         
+  - name: http
+    port: 8000
+    targetPort: 8000
+  selector:
+    app: sebastesla1python  
+
