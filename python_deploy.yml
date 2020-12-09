@@ -1,38 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment                 
 metadata:
-  name: pythonapp
-  labels:
-    app: pythonapp             
+  name: python             
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pythonapp          
+      app: sebastesla1python          
   template:                     
     metadata:
       labels:                    
-        app: pythonapp 
+        app: sebastesla1python 
     spec:
       containers:
-      - name: pythonapp
-        image: sebastesla1/python:1.1
-        command: ["sh","-c","echo running on port 8000"]
+      - name: sebastesla1python
+        image: sebastesla1/python:1.2
         ports:
-          - containerPort: 8000      
+          - containerPort: 8000
 ---
 apiVersion: v1
 kind: Service                    
 metadata:
-  name: attach
-  labels:
-    app: pythonapp   
+  name: lb    
 spec:
   type: LoadBalancer                 
   ports:                         
   - name: http
     port: 8000
     targetPort: 8000
-    protocol: TCP
   selector:
-    app: python  
+    app: sebastesla1python  
+
