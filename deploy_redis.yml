@@ -17,9 +17,9 @@ spec:
     spec:
       containers:
         - name: cnt-redis
-          image: redis:alpine
+          image: redis:latest
           ports:
-                  - containerPort: 6379
+           - containerPort: 6379
 
 ---
 apiVersion: v1
