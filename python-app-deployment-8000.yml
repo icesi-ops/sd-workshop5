@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app-deployment-8000
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pythoncounter          
+  template:                     
+    metadata:
+      labels:                    
+        app: pythoncounter 
+    spec:
+      containers:
+      - name: pythoncounter
+        image: mateomatta/pythoncounter:0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8000      
+---
+apiVersion: v1
+kind: Service                    
+metadata:
+  name: loadbalancer
+spec:
+  type: LoadBalancer                 
+  ports:                         
+  - name: http
+    port: 8000
+    targetPort: 8000
+  selector:
+    app: pythoncounter 
