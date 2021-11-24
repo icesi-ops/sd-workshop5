@@ -1,2 +1,7 @@
 # sd-workshop5
-Here
+
+`minikube start`
+
+`kubectl apply -f ./`
+
+`curl $(minikube service python-app --url)`
