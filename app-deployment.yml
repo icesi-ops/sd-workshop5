@@ -28,7 +28,7 @@ kind: Service
 metadata:
   name: python-app
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: http
       port: 8000
