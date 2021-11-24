@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: python-app
 spec:
-  replicas: 1                    # Number of pods to run at any given time
+  replicas: 3                    # Number of pods to run at any given time
   selector:
     matchLabels:
       app: python-app
