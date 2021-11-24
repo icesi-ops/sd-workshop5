@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-python
+  labels:
+    project: workshop5
+    service: web
+    version: "0.1"
+    app: workshop
+spec:
+  containers:
+  - name: workshop
+    image: workshop:local
+    imagePullPolicy: Never
