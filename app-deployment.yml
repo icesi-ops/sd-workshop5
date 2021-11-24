@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app
+spec:
+  replicas: 1                    # Number of pods to run at any given time
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+      - name: python-app
+        image: abarreral/python-app-ws:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8000
+        env:
+          - name: REDISAPP_SERVICE_HOST
+            value: redisapp
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-app
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+      # nodePort: 30164
+  selector:
+    app: python-app
