@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visit-count-app-python
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: visit-count-app-python
+  template:
+    metadata:
+      labels:
+        app: visit-count-app-python
+    spec:
+      containers:
+      - name: visit-count-app-python
+        image: pcspam/visit-count-app-python
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: visit-count-app-python
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+  selector:
+    app: visit-count-app-python
