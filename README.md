@@ -17,7 +17,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app
-  namespace: app-ns
+  namespace: w2
   labels:
     app: app
 spec:
@@ -39,7 +39,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: loadbalancer
-  namespace: app-ns
+  namespace: w2
 spec:
   type: LoadBalancer
   selector:
