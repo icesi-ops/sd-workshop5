@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: python-service
+  ports:
+    - protocol: TCP
+      port: 5001
+      targetPort: 5000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-service
+  labels:
+    app: python-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-service
+  template:
+    metadata:
+      labels:
+        app: python-service
+    spec:
+      containers:
+      - name: python-service
+        image: gallo9923/python-redis-k8
+        ports:
+        - containerPort: 5000
+          name: "default"
+        env:
+          - name: python-redis
+            value: $(REDIS_SERVICE_HOST)
