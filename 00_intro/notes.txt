@@ -1,0 +1,2 @@
+docker exec -t <id of the contianer> <location>
+docker exec -t 3cb /bin/bash/
