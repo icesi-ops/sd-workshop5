@@ -26,8 +26,6 @@ metadata:
   name: count-app
 spec:
   type: LoadBalancer
-  externalIPs:
-  - 186.98.60.123
   ports:
     - name: http
       port: 8000
