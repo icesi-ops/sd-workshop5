@@ -9,7 +9,7 @@ kubectl create -f redis-deployment.yml
 
 # Evidences
 
-![](https://github.com/Sleeptightt/sd-workshop5/tree/main/Evidences/services.png)
+![image](https://user-images.githubusercontent.com/45499862/168946285-c89641aa-c71b-49ef-977a-ac20ece83567.png)
 
-![](https://github.com/Sleeptightt/sd-workshop5/tree/main/Evidences/browser.png)
+![image](https://user-images.githubusercontent.com/45499862/168946198-52d21e1d-54e0-4793-9a36-412ea50b70b4.png)
 
