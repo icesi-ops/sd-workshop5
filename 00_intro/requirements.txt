@@ -1,0 +1,3 @@
+flask
+redis
+itsdangerous==2.0.1
