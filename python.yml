@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythonapp
+  namespace: ws5
+  labels:
+    app: pythonapp
+spec:
+  replicas: 6
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: pythonapp
+  template:
+    metadata:
+      labels:
+        app: pythonapp
+    spec:
+      containers:
+      - name: pythonapp
+        image: javtor/ws5
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pythonapp
+  namespace: ws5
+  labels:
+    app: pythonapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+  selector:
+    app: pythonapp
