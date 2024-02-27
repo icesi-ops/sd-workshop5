@@ -1,0 +1,5 @@
+consul.service.consul
+app-config.service.consul
+app-invoice.service.consul
+app-pay.service.consul
+app-transaction.service.consul
