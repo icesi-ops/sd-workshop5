@@ -7,7 +7,7 @@ apiEndpoints:
   appconfig:
     host: localhost
     paths: ['/config','/config/*']
-   appinvoice:
+  appinvoice:
     host: localhost
     paths: ['/invoice','/invoice/*']
   apppay:
@@ -19,7 +19,7 @@ apiEndpoints:
 serviceEndpoints:
   appconfig:
    url: 'http://loadbalancer/config/'
-   appinvoice:
+  appinvoice:
    url: 'http://loadbalancer/invoice/'
   apppay:
    url: 'http://loadbalancer/pay/'
