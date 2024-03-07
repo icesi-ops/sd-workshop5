@@ -179,7 +179,7 @@ eg users create
 Assign the authentication key to the user you just created:
 
 ```
-eg credentials create -c jhorman -t key-auth -q
+eg credentials create -c camilog -t key-auth -q
 ```
 
 Save the generated authentication key.
